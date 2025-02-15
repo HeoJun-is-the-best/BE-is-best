@@ -16,6 +16,6 @@ class PlaceController(
     fun getPlaceRecommendations(
         @RequestBody request: PlaceRecommendHttpDto.Request,
     ): List<PlaceRecommendHttpDto.Response> {
-        return placeService.getPlaceList(request.topics)
+        return placeService.getPlaceList(request)
     }
 }

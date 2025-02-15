@@ -3,6 +3,7 @@ package youduck.highton.controller.place.dto
 class PlaceRecommendHttpDto {
     data class Request(
         val topics: String,
+        val count: Int,
     )
 
     data class Response(

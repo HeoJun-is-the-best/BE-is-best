@@ -5,10 +5,25 @@ data class AIResponse(
     val status_code: Int,
 )
 
+data class SubTopicGeneratingResponse(
+    val sports_subcategories: List<String>,
+)
+
 data class SubTopicGenerating(
     val response: List<String>,
     val status_code: Int,
-)
+) {
+    companion object {
+        fun fromRawResponse(aiResponse: AIResponse): SubTopicGenerating {
+            val rawResponse = aiResponse.response as Map<*, *>
+            val subcategories = (rawResponse["sports_subcategories"] as List<*>).map { it.toString() }
+            return SubTopicGenerating(
+                response = subcategories,
+                status_code = aiResponse.status_code,
+            )
+        }
+    }
+}
 
 data class PlaceRecommendAi(
     val response: List<PlaceInfo>,
