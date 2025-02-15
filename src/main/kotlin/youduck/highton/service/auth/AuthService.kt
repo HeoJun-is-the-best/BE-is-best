@@ -23,6 +23,7 @@ class AuthService(
                 User(
                     username = request.username,
                     password = request.password,
+                    name = request.name,
                 ),
             )
 
@@ -34,6 +35,7 @@ class AuthService(
         return RegisterHttpDto.Response(
             userId = savedUser.id,
             username = savedUser.username,
+            name = savedUser.name,
             message = "Successfully registered",
         )
     }
@@ -51,6 +53,7 @@ class AuthService(
         return LoginHttpDto.Response(
             id = user.id,
             username = user.username,
+            name = user.name,
         )
     }
 }

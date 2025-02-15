@@ -8,6 +8,7 @@ class LoginHttpDto {
 
     data class Response(
         val id: Long,
+        val name: String,
         val username: String,
     )
 }

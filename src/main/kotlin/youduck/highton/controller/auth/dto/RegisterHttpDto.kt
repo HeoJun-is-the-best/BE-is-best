@@ -2,6 +2,7 @@ package youduck.highton.controller.auth.dto
 
 class RegisterHttpDto {
     data class Request(
+        val name: String,
         val username: String,
         val password: String,
         val topic: List<TopicMappingDto>,
@@ -14,6 +15,7 @@ class RegisterHttpDto {
 
     data class Response(
         val userId: Long,
+        val name: String,
         val username: String,
         val message: String,
     )
