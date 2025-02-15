@@ -2,7 +2,7 @@ package youduck.highton.controller.schedule.dto
 
 import java.time.LocalDate
 
-class ScheduleHttpDto {
+class ScheduleSaveHttpDto {
     data class Request(
         val userId: Long,
         val title: String,
