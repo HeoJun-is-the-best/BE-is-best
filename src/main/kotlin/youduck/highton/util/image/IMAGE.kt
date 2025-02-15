@@ -32,7 +32,7 @@ class IMAGE {
             image_urls = listOf(DEFAULT_IMAGE_URL),
             query = query,
             timestamp = LocalDateTime.now(),
-            total_images_found = 1
+            total_images_found = 1,
         )
     }
 
@@ -41,15 +41,17 @@ class IMAGE {
         return try {
             val url = "http://$host:$port/search"
 
-            val headers = HttpHeaders().apply {
-                contentType = MediaType.APPLICATION_JSON
-            }
+            val headers =
+                HttpHeaders().apply {
+                    contentType = MediaType.APPLICATION_JSON
+                }
 
             val requestBody = mapOf("queries" to queries)
             val entity = HttpEntity(requestBody, headers)
 
-            val response = restTemplate.postForObject(url, entity, ImageSearchWrapper::class.java)
-                ?: throw IllegalStateException("Response body is null")
+            val response =
+                restTemplate.postForObject(url, entity, ImageSearchWrapper::class.java)
+                    ?: throw IllegalStateException("Response body is null")
 
             // Convert results to ImageSearchResponse objects
             response.results.map { result ->
@@ -57,7 +59,7 @@ class IMAGE {
                     image_urls = result.image_urls.ifEmpty { listOf(DEFAULT_IMAGE_URL) },
                     query = result.query,
                     timestamp = LocalDateTime.parse(response.timestamp),
-                    total_images_found = result.total_images_found
+                    total_images_found = result.total_images_found,
                 )
             }
         } catch (e: Exception) {
@@ -68,7 +70,7 @@ class IMAGE {
                     image_urls = listOf(DEFAULT_IMAGE_URL),
                     query = query,
                     timestamp = LocalDateTime.now(),
-                    total_images_found = 1
+                    total_images_found = 1,
                 )
             }
         }

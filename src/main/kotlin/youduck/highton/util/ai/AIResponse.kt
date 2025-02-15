@@ -25,12 +25,12 @@ data class PlaceRecommendAi(
 
 data class TrendingNewsResponse(
     val response: List<NewsItem>,
-    val status_code: Int
+    val status_code: Int,
 ) {
     data class NewsItem(
         val category: String,
         val title: String,
         val description: String,
-        val copyright: String
+        val copyright: String,
     )
 }
