@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class HightonApplication
 
 fun main(args: Array<String>) {
-	runApplication<HightonApplication>(*args)
+    runApplication<HightonApplication>(*args)
 }
