@@ -6,6 +6,7 @@ import youduck.highton.controller.auth.dto.LoginHttpDto
 import youduck.highton.controller.auth.dto.RegisterHttpDto
 import youduck.highton.entity.auth.User
 import youduck.highton.repository.auth.AuthRepository
+import youduck.highton.service.topic.TopicService
 
 @Service
 class AuthService(

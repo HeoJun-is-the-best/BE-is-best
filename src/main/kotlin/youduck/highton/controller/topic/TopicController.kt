@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import youduck.highton.controller.topic.dto.SubTopicGenerativeAIHttpDto
 import youduck.highton.controller.topic.dto.TopicHttpDto
-import youduck.highton.service.auth.TopicService
+import youduck.highton.service.topic.TopicService
 
 @RestController
 @RequestMapping("/api/v1")
