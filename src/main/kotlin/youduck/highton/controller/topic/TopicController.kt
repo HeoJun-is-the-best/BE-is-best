@@ -46,9 +46,11 @@ class TopicController(
     }
 
     @PostMapping("/topics/ai")
-    fun subTopicGenerator( // {majorTopic}
+    fun subTopicGenerator(
         @RequestBody request: SubTopicGenerativeAIHttpDto.Request,
-    ) = ResponseEntity.ok(SubTopicGenerativeAIHttpDto.Response(
-        subTopic = topicService.getAIResponseForTopic(request.majorTopic)!!.response
-    ))
+    ) = ResponseEntity.ok(
+        SubTopicGenerativeAIHttpDto.Response(
+            subTopic = topicService.getAIResponseForTopic(request.majorTopic)!!.response,
+        ),
+    )
 }
