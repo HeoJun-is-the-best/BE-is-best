@@ -22,3 +22,15 @@ data class PlaceRecommendAi(
         val longitude: Double,
     )
 }
+
+data class TrendingNewsResponse(
+    val response: List<NewsItem>,
+    val status_code: Int
+) {
+    data class NewsItem(
+        val category: String,
+        val title: String,
+        val description: String,
+        val copyright: String
+    )
+}

@@ -16,3 +16,7 @@ ai:
   server:
     host: 165.140.23.12
     port: 31112
+image:
+  server:
+    host: 165.140.23.12
+    port: 31114

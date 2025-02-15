@@ -16,3 +16,8 @@ ai:
   server:
     host: localhost
     port: 5000
+
+image:
+  server:
+    host: localhost
+    port: 5001
