@@ -9,12 +9,15 @@ import youduck.highton.entity.topic.TopicMapping
 import youduck.highton.repository.topic.MajorTopicRepository
 import youduck.highton.repository.topic.SubTopicRepository
 import youduck.highton.repository.topic.TopicMappingRepository
+import youduck.highton.util.ai.AI
+import youduck.highton.util.ai.SubTopicGenerating
 
 @Service
 class TopicService(
     private val majorTopicRepository: MajorTopicRepository,
     private val subTopicRepository: SubTopicRepository,
     private val topicMappingRepository: TopicMappingRepository,
+    private val ai: AI,
 ) {
     // 회원가입 시 Topic 저장 및 매핑
     @Transactional
@@ -83,4 +86,10 @@ class TopicService(
     fun getSubTopicById(id: Long): SubTopic =
         subTopicRepository.findById(id)
             .orElseThrow { IllegalArgumentException("Sub Topic not found with id: $id") }
+
+    // AI에 주제를 전송하고 응답을 받는 메서드
+    fun getAIResponseForTopic(topic: String): SubTopicGenerating? {
+        val prompt = "$topic 카테고리에 부주제로는 뭐가 있을까? 5개 정도 배열로 보내줘"
+        return ai.sendMessage(prompt, SubTopicGenerating::class)
+    }
 }
