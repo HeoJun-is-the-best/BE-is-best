@@ -18,23 +18,7 @@ class AuthController(
     fun login(
         @RequestBody loginRequest: LoginHttpDto.Request,
     ): ResponseEntity<LoginHttpDto.Response> {
-        return try {
-            ResponseEntity.ok(
-                LoginHttpDto.Response(
-                    username = "TODO()",
-                    password = "TODO()",
-                    name = "TODO()",
-                ),
-            )
-        } catch (e: Exception) {
-            ResponseEntity.badRequest().body(
-                LoginHttpDto.Response(
-                    username = "TODO()",
-                    password = "TODO()",
-                    name = "TODO()",
-                ),
-            )
-        }
+        return ResponseEntity.ok(authService.login(loginRequest))
     }
 
     @PostMapping("/signup")

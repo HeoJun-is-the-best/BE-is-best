@@ -7,9 +7,7 @@ class LoginHttpDto {
     )
 
     data class Response(
+        val id: Long,
         val username: String,
-        val password: String,
-        val name: String,
-// TODO(Jun): 로그인 시 더 필요한 정보 없는지 확인해봐야 함
     )
 }

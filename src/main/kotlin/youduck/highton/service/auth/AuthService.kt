@@ -2,6 +2,7 @@ package youduck.highton.service.auth
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import youduck.highton.controller.auth.dto.LoginHttpDto
 import youduck.highton.controller.auth.dto.RegisterHttpDto
 import youduck.highton.entity.auth.User
 import youduck.highton.repository.auth.AuthRepository
@@ -34,6 +35,22 @@ class AuthService(
             userId = savedUser.id,
             username = savedUser.username,
             message = "Successfully registered",
+        )
+    }
+
+    @Transactional(readOnly = true)
+    fun login(loginHttpDto: LoginHttpDto.Request): LoginHttpDto.Response {
+        val user =
+            authRepository.findByUsername(loginHttpDto.username)
+                ?: throw IllegalArgumentException("Invalid username or password")
+
+        if (user.password != loginHttpDto.password) {
+            throw IllegalArgumentException("Invalid username or password")
+        }
+
+        return LoginHttpDto.Response(
+            id = user.id,
+            username = user.username,
         )
     }
 }
