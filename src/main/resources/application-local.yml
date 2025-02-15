@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: highton
+  datasource:
+    url: jdbc:mysql://165.140.23.12:31110/youduck
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 31111
+
+ai:
+  server:
+    host: 165.140.23.12
+    port: 31112
