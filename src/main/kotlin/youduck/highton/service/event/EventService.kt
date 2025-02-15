@@ -9,10 +9,11 @@ import youduck.highton.util.image.IMAGE
 @Service
 class EventService(
     private val ai: AI,
-    private val imageService: IMAGE
+    private val imageService: IMAGE,
 ) {
     fun getFeaturedSportEvents(request: EventHttpDto.Request): List<EventHttpDto.Response> {
-        val prompt = """
+        val prompt =
+            """
             이번 달에 ${request.count}개의 주목할만한 ${request.topics} 행사를 알려줘. 
             각 이벤트에는 다음이 포함되어야 해.
             title(행사 제목)
@@ -22,7 +23,7 @@ class EventService(
             location(위치(주소))
 
             응답을 JSON 배열의 이벤트 배열로 작성하고 value들은 모두 한국어야 해.
-        """.trimIndent()
+            """.trimIndent()
 
         val aiResponse = ai.sendMessage(prompt, SportEventAIResponse::class)
 
@@ -39,7 +40,7 @@ class EventService(
                 startDate = eventInfo.startDate.slice(5..9).replace("-", "."),
                 endDate = eventInfo.endDate.slice(5..9).replace("-", "."),
                 location = eventInfo.location,
-                thumbnail = imageResponses[index].image_urls.firstOrNull() ?: ""
+                thumbnail = imageResponses[index].image_urls.firstOrNull() ?: "",
             )
         }
     }

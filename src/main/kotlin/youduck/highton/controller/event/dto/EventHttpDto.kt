@@ -3,7 +3,7 @@ package youduck.highton.controller.event.dto
 class EventHttpDto {
     data class Request(
         val topics: String,
-        val count: Int
+        val count: Int,
     )
 
     data class Response(

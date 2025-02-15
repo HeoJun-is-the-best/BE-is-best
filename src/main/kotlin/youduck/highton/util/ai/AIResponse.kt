@@ -52,7 +52,7 @@ data class TrendingNewsResponse(
 
 data class SportEventAIResponse(
     val response: List<SportEventInfo>,
-    val status_code: Int
+    val status_code: Int,
 ) {
     data class SportEventInfo(
         val title: String,
