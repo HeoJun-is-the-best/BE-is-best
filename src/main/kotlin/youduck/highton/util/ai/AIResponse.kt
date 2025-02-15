@@ -49,3 +49,16 @@ data class TrendingNewsResponse(
         val copyright: String,
     )
 }
+
+data class SportEventAIResponse(
+    val response: List<SportEventInfo>,
+    val status_code: Int
+) {
+    data class SportEventInfo(
+        val title: String,
+        val description: String,
+        val startDate: String,
+        val endDate: String,
+        val location: String,
+    )
+}
