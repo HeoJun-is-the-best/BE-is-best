@@ -5,6 +5,8 @@ import java.time.LocalDate
 class ScheduleReadHttpDto {
     data class Request(
         val userId: Long,
+        val year: Long,
+        val month: Long,
     )
 
     data class Response(

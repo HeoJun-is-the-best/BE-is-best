@@ -32,6 +32,12 @@ class ScheduleService(
 
     fun read(request: ScheduleReadHttpDto.Request): List<ScheduleReadHttpDto.Response> {
         return scheduleRepository.findAllByUserId(request.userId)
+            .filter { schedule ->
+                val scheduleYear = schedule.startDate.year.toLong()
+                val scheduleMonth = schedule.startDate.monthValue.toLong()
+
+                scheduleYear == request.year && scheduleMonth == request.month
+            }
             .map { schedule ->
                 ScheduleReadHttpDto.Response(
                     id = schedule.id,

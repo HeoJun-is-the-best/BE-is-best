@@ -37,8 +37,8 @@ class EventService(
             EventHttpDto.Response(
                 title = eventInfo.title,
                 description = eventInfo.description,
-                startDate = eventInfo.startDate.slice(5..9).replace("-", "."),
-                endDate = eventInfo.endDate.slice(5..9).replace("-", "."),
+                startDate = eventInfo.startDate.slice(2..9).replace("-", "."),
+                endDate = eventInfo.endDate.slice(2..9).replace("-", "."),
                 location = eventInfo.location,
                 thumbnail = imageResponses[index].image_urls.firstOrNull() ?: "",
             )
